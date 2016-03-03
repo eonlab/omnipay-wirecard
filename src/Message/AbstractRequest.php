@@ -134,6 +134,17 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         return $this->setParameter('countryCode', $value);
     }
+    
+    //Add type to allow Recurring
+    public function getType()
+    {
+        return $this->getParameter('type');
+    }
+
+    public function setType($value)
+    {
+        return $this->setParameter('type', $value);
+    }
 
     /**
      * Send the request with specified data
