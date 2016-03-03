@@ -54,7 +54,7 @@ class Gateway extends AbstractGateway
     {
         return $this->setParameter('password', $value);
     }
-    //test
+    //Add Type to allow Recurring
     public function getType()
     {
         return $this->getParameter('type');
