@@ -54,7 +54,7 @@ class Gateway extends AbstractGateway
     {
         return $this->setParameter('password', $value);
     }
-    
+    //test
     public function getType()
     {
         return $this->getParameter('type');
