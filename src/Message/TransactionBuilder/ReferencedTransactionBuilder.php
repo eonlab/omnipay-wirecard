@@ -16,9 +16,10 @@ class ReferencedTransactionBuilder implements TransactionBuilderInterface
     /**
      * @param AbstractRequest $request
      */
-    public function __construct(AbstractRequest $request)
+    public function __construct(AbstractRequest $request, $need_amount = 0)
     {
         $this->request = $request;
+        $this->need_amount = $need_amount;
     }
 
     /**
@@ -29,9 +30,10 @@ class ReferencedTransactionBuilder implements TransactionBuilderInterface
         $transaction = new Transaction();
         $transaction->id = $this->request->getTransactionId();
         $transaction->guWid = $this->request->getTransactionReference();
-        $transaction->amount = new Amount($this->request->getAmount());
-        $transaction->currency = $this->request->getCurrency();
-
+        if($this->need_amount == 1){
+            $transaction->amount = new Amount($this->request->getAmount());
+            $transaction->currency = $this->request->getCurrency();
+        }
         return $transaction;
     }
 }
