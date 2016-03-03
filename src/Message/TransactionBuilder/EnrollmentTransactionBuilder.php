@@ -8,6 +8,7 @@ use Wirecard\Element\Amount;
 use Wirecard\Element\BillingAddress;
 use Wirecard\Element\CreditCardData;
 use Wirecard\Element\Transaction;
+use Wirecard\Element\RecurringTransaction;
 use Wirecard\Element\TrustCenterData;
 
 class EnrollmentTransactionBuilder implements TransactionBuilderInterface
@@ -57,6 +58,7 @@ class EnrollmentTransactionBuilder implements TransactionBuilderInterface
         $transaction->currency = $this->request->getCurrency();
         $transaction->countryCode = $this->request->getCountryCode();
         $transaction->creditCardData = $creditCardData;
+        $transaction->recurringTransaction = new RecurringTransaction($this->request->getType());
         $transaction->trustCenterData = $trustCenter;
 
         return $transaction;
