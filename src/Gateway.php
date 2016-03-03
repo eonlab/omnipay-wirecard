@@ -140,7 +140,7 @@ class Gateway extends AbstractGateway
     public function reversal(array $parameters = array())
     {
         $request = $this->createRequest('\Omnipay\Wirecard\Message\ReversalRequest', $parameters);
-        $request->setTransactionBuilder(new ReferencedTransactionBuilder($request));
+        $request->setTransactionBuilder(new ReferencedTransactionBuilder($request,1));
 
         return $request;
     }
@@ -164,7 +164,7 @@ class Gateway extends AbstractGateway
     public function bookBack(array $parameters = array())
     {
         $request = $this->createRequest('\Omnipay\Wirecard\Message\BookBackRequest', $parameters);
-        $request->setTransactionBuilder(new ReferencedTransactionBuilder($request));
+        $request->setTransactionBuilder(new ReferencedTransactionBuilder($request,1));
 
         return $request;
     }
