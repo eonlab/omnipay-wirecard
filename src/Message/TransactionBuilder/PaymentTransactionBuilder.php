@@ -8,6 +8,7 @@ use Wirecard\Element\CreditCardData;
 use Wirecard\Element\Secure;
 use Wirecard\Element\Transaction;
 use Wirecard\Element\RecurringTransaction;
+use Wirecard\Element\ContactData;
 
 class PaymentTransactionBuilder extends EnrollmentTransactionBuilder
 {
@@ -30,6 +31,7 @@ class PaymentTransactionBuilder extends EnrollmentTransactionBuilder
             /** @var CreditCard $creditCard */
             $creditCard = $this->request->getCard();
             $transaction->creditCardData->secureCode = $creditCard->getCvv();
+            $transaction->contactData = new ContactData($this->request->getIpAddress());
         }
 
         return $transaction;
