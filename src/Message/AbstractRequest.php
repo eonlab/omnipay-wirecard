@@ -145,6 +145,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         return $this->setParameter('type', $value);
     }
+    
+    public function getIpAddress()
+    {
+        return $this->getParameter('ipAddress');
+    }
+
+    public function setIpAddress($value)
+    {
+        return $this->setParameter('ipAddress', $value);
+    }
 
     /**
      * Send the request with specified data
