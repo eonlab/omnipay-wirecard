@@ -65,14 +65,14 @@ class Gateway extends AbstractGateway
         return $this->setParameter('type', $value);
     }
     
+    public function getIpAddress()
+    {
+        return $this->getParameter('ipAddress');
+    }
+
     public function setIpAddress($value)
     {
         return $this->setParameter('ipAddress', $value);
-    }
-
-    public function getSignature()
-    {
-        return $this->getParameter('signature');
     }
 
     public function getSignature()
